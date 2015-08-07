@@ -1,0 +1,7 @@
+<h5>Player: <%= session[:player_name] %></h5><br>
+<h5>Money: <%= session[:player_money] %></h5>
+
+<form action="/initial_deal" method="post">
+<input type="number" placeholder="Your Bet" name="player_bet">
+<input type="submit" class="btn" value="Submit">
+</form>

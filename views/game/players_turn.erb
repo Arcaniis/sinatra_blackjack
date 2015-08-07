@@ -1,0 +1,25 @@
+<%
+if session[:player_hand] == []
+	deck = ["|2","|3","|4","|5","|6","|7","|8","|9","|10","|J","|Q","|K","|A"]\
+            .product(["H|", "S|", "D|", "C|"]).map {|x| x.join}
+	session[:deck] = deck.shuffle!
+
+	2.times do
+		session[:dealer_hand] << session[:deck].pop
+	end
+
+	2.times do
+		session[:player_hand] << session[:deck].pop
+	end
+end
+%>
+<h5>Dealer deals</h5>
+<h6>Dealer's Hand: <%= session[:dealer_hand] %></h6><br>
+<h6><%= session[:player_name] %>'s Hand: <%= session[:player_hand] %></h6>
+
+<div>
+	<p>Would you like to hit or stay?</p>
+	<form action="/player_hit" method="post">
+	<input type="submit" class="btn" value="Hit">
+	</form>
+</div>
