@@ -1,25 +1,17 @@
-<%
-if session[:player_hand] == []
-	deck = ["|2","|3","|4","|5","|6","|7","|8","|9","|10","|J","|Q","|K","|A"]\
-            .product(["H|", "S|", "D|", "C|"]).map {|x| x.join}
-	session[:deck] = deck.shuffle!
+<h5>Player: <%= session[:player_name] %></h5><br>
+<h5>Money: <%= session[:player_money] %></h5>
 
-	2.times do
-		session[:dealer_hand] << session[:deck].pop
-	end
+<h6>Dealer's Hand: HIDDEN / <%= (session[:dealer_hand])[1] %></h6><br>
+<h6><%= session[:player_name] %>'s Hand: <%= session[:player_hand] %> : <%= session[:player_value] %></h6>
 
-	2.times do
-		session[:player_hand] << session[:deck].pop
-	end
-end
-%>
-<h5>Dealer deals</h5>
-<h6>Dealer's Hand: <%= session[:dealer_hand] %></h6><br>
-<h6><%= session[:player_name] %>'s Hand: <%= session[:player_hand] %></h6>
+<h5><%= session[:deck].count %>
 
 <div>
 	<p>Would you like to hit or stay?</p>
 	<form action="/player_hit" method="post">
 	<input type="submit" class="btn" value="Hit">
+	</form>
+	<form action="/player_stay" method="post">
+	<input type="submit" class="btn" value="Stay">
 	</form>
 </div>

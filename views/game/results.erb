@@ -1,0 +1,15 @@
+<h5>Player: <%= session[:player_name] %></h5><br>
+<h5>Money: <%= session[:player_money] %></h5>
+
+<h6>Dealer's Hand: <%= session[:dealer_hand] %></h6><br>
+<h6><%= session[:player_name] %>'s Hand: <%= session[:player_hand] %> : <%= session[:player_value] %></h6>
+
+<% if blackjack?(:player_value) %>
+	<%= 'You hit Blackjack. You win!' %>
+<% elsif bust?(:player_value) %>
+	<%= 'You busted. You lose.' %>
+<% elsif bust?(:dealer_value) %>
+	<%= 'Dealer busted. You win!' %>
+<% else %>
+	<%= 'FIND WINNER...' %>
+<% end %>
