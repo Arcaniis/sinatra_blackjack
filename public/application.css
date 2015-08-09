@@ -1,3 +1,38 @@
-.header {
+li#title {
+	margin-top: 10px;
+	font-size: 32px;
+	font-family: fantasy;
+	font-weight: bold;
+	font-style: oblique;
 
+}
+
+h1#goodbye {
+	margin-top: 10px;
+	font-size: 32px;
+	font-family: fantasy;
+	font-weight: bold;
+	font-style: oblique;
+}
+
+h5.top {
+	float: left;
+	margin-right: 100px;
+}
+
+img {
+	height: 100px;
+	width: auto;
+	margin-right: 5px;
+	border-radius: 6px;
+	border: 2px solid black;
+}
+
+form#hit_form {
+	float: left;
+	margin-right: 10px;
+}
+
+form#stay_form {
+	float: left;
 }

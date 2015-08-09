@@ -1,10 +1,24 @@
-<h5>Player: <%= session[:player_name] %></h5><br>
-<h5>Money: <%= session[:player_money] %></h5>
+<div class="well">
+	<h5>
+	Dealer's Hand: 
+	<% session[:dealer_hand].each do |card| %>
+		<img src='/images/cards/<%= display_card(card) %>' >
+	<% end %>
+	</h5>
+	<h5>Dealer's Total: <%= hand_value(:dealer_hand) %></h5>
+</div>
 
-<h6>Dealer's Hand: <%= session[:dealer_hand] %></h6><br>
-<h6><%= session[:player_name] %>'s Hand: <%= session[:player_hand] %> : <%= session[:player_value] %></h6>
+<div class="well">
+	<h5>
+	Your Hand:  
+	<% session[:player_hand].each do |card| %>
+		<img src='/images/cards/<%= display_card(card) %>' >
+	<% end %>
+	</h5>
+	<h5>Your Total: <%= hand_value(:player_hand) %></h5>
+</div>
 
 
 <form action="/dealers_turn" method="post">
-<input type="submit" class="btn" value="Next Move">
+<input type="submit" class="btn btn-primary" value="Click to see Dealers' move">
 </form>

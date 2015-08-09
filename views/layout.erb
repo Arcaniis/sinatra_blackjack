@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My First App</title>
+    <title>BLACKJACK!</title>
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/application.css">
   </head>
@@ -11,16 +11,28 @@
       <div class="navbar-inner">
         <div class="container">
             <ul class="nav">
-              <li><a href="/">Home</a></li>
+              <li id="title">BLACKJACK!</li>
               <li><a href='/restart'>Restart</a></li>
             </ul>
         </div>
       </div>
     </div>
+    
+    <div style="clear: both"class="container">
+      <h5 class="top">Player: <%= session[:player_name] %></h5>
+      <h5 class="top">Money: $<%= session[:player_money] %></h5>
+      <h5 class="top">Bet: $<%= session[:player_bet] %></h5>
+    </div>
 
   <div class="container">
     <%if @error %>
       <div class="alert alert-error"><%=@error%></div>
+    <% end %>
+    <%if @success %>
+      <div class="alert alert-success"><%=@success%></div>
+    <% end %>
+    <%if @warning %>
+      <div class="alert alert-warning"><%=@warning%></div>
     <% end %>
       <%= yield %>
   </div>

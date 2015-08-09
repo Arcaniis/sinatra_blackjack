@@ -1,7 +1,7 @@
-<h5>Player: <%= session[:player_name] %></h5><br>
-<h5>Money: <%= session[:player_money] %></h5>
+<h5>Please enter your bet for this round.</h5>
 
 <form action="/initial_deal" method="post">
-<input type="number" placeholder="Your Bet" name="player_bet">
+<input type="number" placeholder="$20 per hand minimum." name="player_bet">
+<br>
 <input type="submit" class="btn" value="Submit">
 </form>

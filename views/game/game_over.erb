@@ -18,12 +18,12 @@
 	<h5>Your Total: <%= hand_value(:player_hand) %></h5>
 </div>
 
-<h5>Play Again?</h5>
-<form id="hit_form" action="/bet">
+<h5>You do not have enough money to continue playing. Do you wish to put more money in?</h5>
+
+<form id="hit_form" action="/money">
 <input type="submit" class="btn btn-success" value="YES">
 </form>
 
 <form id="stay_form" action="/goodbye">
-<input type="submit" class="btn btn-danger" value="NO">
+<input type="submit" class="btn btn-danger" value="QUIT">
 </form>
-
