@@ -1,10 +1,26 @@
-<h5>Player: <%= session[:player_name] %></h5><br>
-<h5>Money: <%= session[:player_money] %></h5>
+<div class="header">
+<h4>Player: <%= session[:player_name] %></h4>
+</div>
+<div class="header">
+<h4>Money: $<%= session[:player_money] %></h4><br>
+</div>
 
-<h6>Dealer's Hand: <%= session[:dealer_hand] %></h6><br>
-<h6><%= session[:player_name] %>'s Hand: <%= session[:player_hand] %> : <%= session[:player_value] %></h6>
+<h6>
+Dealer's Hand: 
+<% session[:dealer_hand].each do |card| %>
+	<img src= '/images/cards/<%= display_card(card) %>' >
+<% end %>
+</h6><br>
 
-<% if blackjack?(:player_value) %>
+<h6>
+<%= session[:player_name] %>'s Hand: 
+<% session[:player_hand].each do |card| %>
+	<img src= '/images/cards/<%= display_card(card) %>' >
+<% end %>
+: <%= session[:player_value] %>
+</h6>
+
+<% if blackjack?(:player_value) && session[:player_hand].count == 2 %>
 	<%= 'You hit Blackjack. You win!' %>
 <% elsif bust?(:player_value) %>
 	<%= 'You busted. You lose.' %>
@@ -13,3 +29,13 @@
 <% else %>
 	<%= 'FIND WINNER...' %>
 <% end %>
+
+<h5> Play Again? </h5>
+<form action="/bet">
+<input type="submit" class="btn" value="YES">
+</form>
+
+<form action="/goodbye">
+<input type="submit" class="btn" value="NO">
+</form>
+
