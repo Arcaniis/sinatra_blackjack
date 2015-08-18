@@ -1,28 +1,32 @@
-<div class="well">
-	<h5>
-	Dealer's Hand: 
-	<img src='/images/cards/cover.jpg'>
-	<img src='/images/cards/<%= display_card((session[:dealer_hand])[1]) %>' >
-	</h5>
-	<h5>Dealer's Total: HIDDEN</h5>
-</div>
+<div id="game">
+	<div class="well">
+		<h5>
+		Dealer's Hand: 
+		<img src='/images/cards/cover.jpg'>
+		<img src='/images/cards/<%= display_card((session[:dealer_hand])[1]) %>' >
+		</h5>
+		<h5>Dealer's Total: HIDDEN</h5>
+	</div>
 
-<div class="well">
-	<h5>
-	Your Hand:  
-	<% session[:player_hand].each do |card| %>
-		<img src='/images/cards/<%= display_card(card) %>' >
-	<% end %>
-	</h5>
-	<h5>Your Total: <%= hand_value(:player_hand) %></h5>
-</div>
+	<div class="well">
+		<h5>
+		Your Hand:  
+		<% session[:player_hand].each do |card| %>
+			<img src='/images/cards/<%= display_card(card) %>' >
+		<% end %>
+		</h5>
+		<h5>Your Total: <%= hand_value(:player_hand) %></h5>
+	</div>
 
-<div>
-	<p>Would you like to hit or stay?</p>
-	<form id="hit_form" action="/player_hit" method="post">
-	<input type="submit" class="btn btn-success" value="Hit">
-	</form>
-	<form id="stay_form" action="/player_stay" method="post">
-	<input type="submit" class="btn btn-warning" value="Stay">
-	</form>
+	<div>
+		<p>Would you like to hit or stay?</p>
+		
+		<form id="hit_form" action="/player_hit" method="post">
+		<input type="submit" class="btn btn-success" value="Hit">
+		</form>
+
+		<form id="stay_form" action="/player_stay" method="post">
+		<input type="submit" class="btn btn-warning" value="Stay">
+		</form>
+	</div>
 </div>

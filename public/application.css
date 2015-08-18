@@ -36,3 +36,12 @@ form#hit_form {
 form#stay_form {
 	float: left;
 }
+
+form#yes {
+	float: left;
+	margin-right: 10px;
+}
+
+form#no {
+	float: left;
+}

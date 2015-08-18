@@ -189,7 +189,7 @@ post '/player_hit' do
   if bust?(:player_value)
     redirect '/results'
   else
-    redirect '/players_turn'
+    erb :'/game/players_turn', layout: false
   end
 end
 
@@ -209,7 +209,7 @@ post '/dealers_turn' do
   if session[:dealer_value] >= 17
     redirect '/results'
   else
-    redirect '/dealers_turn'
+    erb :'/game/dealers_turn', layout: false
   end
 end
 
