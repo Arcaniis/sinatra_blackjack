@@ -11,16 +11,4 @@ $(document).ready(function() {
 
 		return false;
 	});
-
-	$(document).on('click', 'form#dealer_hit input', function() {
-		
-		$.ajax({
-			type: 'POST',
-			url:  '/dealers_turn'
-		}).done(function(msg) {
-			$('#dealer_game').replaceWith(msg);
-		});
-
-		return false;
-	});
 });
